@@ -8,3 +8,5 @@
 RISE_Manual-vs1.pdf
 RESTful_CDppTest.jar
 lib/
+*.zip
+RISE/covid/

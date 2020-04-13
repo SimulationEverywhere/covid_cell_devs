@@ -6,16 +6,12 @@
         <File ftype="val">covid.val</File>
         <File ftype="inc">VN.inc</File>
     </Files>
-    <Options>
-        <TimeOp>00:00:02:000</TimeOp>
-        <OnlyYMsgOP>true</OnlyYMsgOP>
-        <ParsingOp>false</ParsingOp>
-    </Options>
+    <Options></Options>
     <DrawLog>
-        <CoupledModel>covid</CoupledModel>
+        <CoupledModel>population</CoupledModel>
         <Width>3</Width>
         <Precision>0</Precision>
-        <NotPrintZero>false</NotPrintZero>
+        <NotPrintZero>true</NotPrintZero>
         <TimeInterval>00:00:00:100</TimeInterval>
     </DrawLog>
 </ConfigFramework>
