@@ -3,3 +3,8 @@
 
 # Logging stuff
 *.log*
+
+# RISE stuff
+RISE_Manual-vs1.pdf
+RESTful_CDppTest.jar
+lib/
