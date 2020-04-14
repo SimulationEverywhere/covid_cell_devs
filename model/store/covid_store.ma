@@ -1,20 +1,20 @@
 #include(VN.inc)
 [top]
-components : population
+components : store
 
-[population]
+[store]
 type : cell
-dim : (10,12)
+dim : (64,100)
 delay : inertial
 defaultDelayTime : 1
-border : nowrapped
-neighbors :                  population(-1,0)
-neighbors : population(0,-1) population(0,0) population(0,1)
-neighbors :                  population(1,0)
+border : nonwrapped
 
-initialvalue : 0
-InitialCellsValue : covid.val
+neighbors :              store(0,-1)
+neighbors : store(-1,0)  store(0,0)  store(1,0)
+neighbors :              store(0,1)
 
+initialValue : 0
+initialCellsValue : covid_store.val
 localtransition : infections
 
 [infections]
@@ -27,6 +27,3 @@ rule : {if( #macro(died), #macro(dead), (0,0)+1)} 1
             {#macro(imInfected)}
 
 rule : {(0,0)} 1000 { t }
-
-% neighbors : population(-1,-1) population(-1,0) population(-1,1)
-% neighbors : population(1,-1) population(1,0) population(1,1)
