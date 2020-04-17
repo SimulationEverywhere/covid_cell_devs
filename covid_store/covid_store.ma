@@ -5,7 +5,7 @@ components : store
 [store]
 type : cell
 dim : (64,100)
-delay : inertial
+delay : transport
 defaultDelayTime : 1
 border : nonwrapped
 
