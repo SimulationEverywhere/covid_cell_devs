@@ -9,10 +9,10 @@ This is a simple SIR model for spread disease inside a store.
 ** Death Rate: ** 0.01
 ** Transmission Rate: ** 0.4
 
-## How to run the model:
+# How to run the model:
+In a BASH terminal, simply run the main shell script:
+```shell
+> ./run_covid_store.sh
+```
+The main output log file of the simulation will be stored in the `covid_store.log` file. You can use this file, together with `covid_store.ma`, `covid_store.val`, and `covid.pal` for visualizing the outcome of your simulation in the [CD++ Cell DEVS Web Viewer](https://omarhesham.com/arslab/webviewer/).
 
-If it does not already exists, create a folder in this level named *results*, type in the linux terminal:  
-> mkdir results
-
-Type in the linux terminal: 
-> ./../cd++ -mcovid_store.ma -lresults/covid_store.log
