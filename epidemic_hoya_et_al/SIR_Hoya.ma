@@ -18,7 +18,7 @@ initialvalue : 0
 localtransition : sir-hoya-rule
 
 statevariables: population v c m
-statevalues: 10 0.5 1 0.7
+statevalues: 10 0.6 1 1
 
 
 neighborports : value infec rec pop sus
