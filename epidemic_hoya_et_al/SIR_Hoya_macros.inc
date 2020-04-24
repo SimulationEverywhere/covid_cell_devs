@@ -1,5 +1,5 @@
 #BeginMacro(e) 
-0.5
+0.4
 #EndMacro
 
 
