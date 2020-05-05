@@ -17,6 +17,7 @@ args = parser.parse_args()
 i = 1
 states = ["sus_0"]
 neighbors = ["(1,0)", "(0,-1)", "(0,1)", "(-1,0)"]
+steps_per_state = list(map(str, [args.incubation_steps, args.infected_steps, args.latent_steps, args.recovered_steps]))
 
 while i <= args.incubation_steps:
     states.append("inc_%d" % i)
@@ -42,7 +43,7 @@ with open(args.template_ma, "r") as f:
     content = f.read()
 
 content = content.replace("[[internal_vars]]", " ".join(["i_%s" % s for s in states]))
-content = content.replace("[[internal_vars_values]]", " ".join(["1.0"] + ["0.0"] * (len(states)-1)))
+content = content.replace("[[internal_vars_values]]", " ".join(steps_per_state + ["1.0"] + ["0.0"] * (len(states)-1)))
 update_ports_str = " ".join(["~%s := $i_%s;" % (s, s) for s in states])
 content = content.replace("[[initial_ports_set_up]]", update_ports_str)
 content = content.replace("[[update_ports_step]]", update_ports_str)
