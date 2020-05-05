@@ -18,7 +18,7 @@ initialvalue : -1
 localtransition : sirs-zhong-rule
 
 statevariables: population area p connection contact_rate cured_rate t_i t_p t_l t_r i_sus_0 i_inc_1 i_inc_2 i_inf_3 i_inf_4 i_lat_5 i_lat_6 i_rec_7 i_rec_8 i_rec_9
-statevalues: 100 1 100 1 1 0.00 2 2 2 3 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+statevalues: 100 1 100 1 0.2 0.0 2 2 2 3 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
 initialvariablesvalue: sirs_zhong.var
 
 neighborports : initial sus_0 inc_1 inc_2 inf_3 inf_4 lat_5 lat_6 rec_7 rec_8 rec_9 pop
@@ -32,7 +32,7 @@ rule : {
 }
 {
 $i_rec_9 := $i_rec_8;
-$i_rec_8 := $i_rec_9;
+$i_rec_8 := $i_rec_7;
 $i_rec_7 := $i_lat_6 + #macro(local_cured);
 
 $i_lat_6 := trunc(min((1 - $cured_rate) * $i_lat_5, 1)*100)/100;
@@ -43,7 +43,6 @@ $i_inc_2 := trunc(min((1 - $cured_rate) * $i_inc_1, 1)*100)/100;
 $i_inc_1 := #macro(internal_infected) + #macro(external_infected);
 
 $i_sus_0 := 1 - $i_inc_1 - $i_inc_2 - $i_inf_3 - $i_inf_4 - $i_lat_5 - $i_lat_6 - $i_rec_7 - $i_rec_8 - $i_rec_9;
-
 }
 1 { (0,0)~initial != -1 }
 
