@@ -35,11 +35,11 @@ $i_rec_9 := $i_rec_8;
 $i_rec_8 := $i_rec_7;
 $i_rec_7 := $i_lat_6 + #macro(local_cured);
 
-$i_lat_6 := trunc(min((1 - $cured_rate) * $i_lat_5, 1)*100)/100;
-$i_lat_5 := trunc(min((1 - $cured_rate) * $i_inf_4, 1)*100)/100;
-$i_inf_4 := trunc(min((1 - $cured_rate) * $i_inf_3, 1)*100)/100;
-$i_inf_3 := trunc(min((1 - $cured_rate) * $i_inc_2, 1)*100)/100;
-$i_inc_2 := trunc(min((1 - $cured_rate) * $i_inc_1, 1)*100)/100;
+$i_lat_6 := round(min((1 - $cured_rate) * $i_lat_5, 1)*100)/100;
+$i_lat_5 := round(min((1 - $cured_rate) * $i_inf_4, 1)*100)/100;
+$i_inf_4 := round(min((1 - $cured_rate) * $i_inf_3, 1)*100)/100;
+$i_inf_3 := round(min((1 - $cured_rate) * $i_inc_2, 1)*100)/100;
+$i_inc_2 := round(min((1 - $cured_rate) * $i_inc_1, 1)*100)/100;
 $i_inc_1 := #macro(internal_infected) + #macro(external_infected);
 
 $i_sus_0 := 1 - $i_inc_1 - $i_inc_2 - $i_inf_3 - $i_inf_4 - $i_lat_5 - $i_lat_6 - $i_rec_7 - $i_rec_8 - $i_rec_9;

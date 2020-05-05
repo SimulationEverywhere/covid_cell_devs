@@ -55,7 +55,7 @@ for i in range(len(states)-1, idx_first_rec, -1):
 update_rules += "$i_%s := $i_%s + #macro(local_cured);\n\n" % (states[idx_first_rec], states[idx_first_rec-1])
 
 for i in range(idx_first_rec-1, 1, -1):
-    update_rules += "$i_%s := trunc(min((1 - $cured_rate) * $i_%s, 1)*100)/100;\n" % (states[i], states[i - 1])
+    update_rules += "$i_%s := round(min((1 - $cured_rate) * $i_%s, 1)*100)/100;\n" % (states[i], states[i - 1])
 update_rules += "$i_%s := #macro(internal_infected) + #macro(external_infected);\n\n" % states[1]
 
 update_rules += "$i_%s := 1 " % states[0]
@@ -77,13 +77,13 @@ with open(args.template_macros, "r") as f:
 
 local_cured_rules = []
 for i in range(idx_first_rec-2, 0, -1):
-    local_cured_rules.append("trunc(min($cured_rate * $i_%s, 1)*100)" % states[i])
+    local_cured_rules.append("round(min($cured_rate * $i_%s, 1)*100)" % states[i])
 
 content = content.replace("[[local_cured]]", "(( %s ) / 100 )" % " +\n".join(local_cured_rules))
 content = content.replace("[[infected_vars]]", " + ".join(["i_%s" % s for s in states[idx_first_rec:0]]))
 
 external_infected_comp = \
-"""( trunc(min(( $connection *
+"""( round(min(( $connection *
 $contact_rate * 
 (($i_sus_0 * $population) / $area) *
 $i_sus_0 * 

@@ -28,8 +28,8 @@ rule : {~initial := 0; ~pop := $population; ~infec := $i_infec; ~sus := $i_sus; 
  1 {(0,0)~initial = -1}
 
 rule : {~pop := $population; ~infec := $i_infec; ~sus := $i_sus; ~rec := $i_rec; }
-{$i_infec:= trunc(min((1 - #macro(e)) * (0,0)~infec + $virulence*(0,0)~sus*(0,0)~infec + (0,0)~sus*#macro(effect_neighbours),1)*100)/100;
-$i_rec := trunc(min((0,0)~rec + #macro(e)*(0,0)~infec,1)*100)/100;
+{$i_infec:= round(min((1 - #macro(e)) * (0,0)~infec + $virulence*(0,0)~sus*(0,0)~infec + (0,0)~sus*#macro(effect_neighbours),1)*100)/100;
+$i_rec := round(min((0,0)~rec + #macro(e)*(0,0)~infec,1)*100)/100;
 $i_sus := 1 - $i_rec - $i_infec;} 
 1 { (0,0)~initial != -1 }
 

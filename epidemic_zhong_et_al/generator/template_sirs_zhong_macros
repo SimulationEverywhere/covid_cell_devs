@@ -4,7 +4,7 @@
 #EndMacro
 
 #BeginMacro(internal_infected) 
-( trunc(min(($contact_rate * 
+( round(min(($contact_rate * 
 (($i_sus_0 * $population) / $area) *
 $i_sus_0 *
 ($i_lat_6 + $i_lat_5 + $i_inf_4 + $i_inf_3 + $i_inc_2 + $i_inc_1)
