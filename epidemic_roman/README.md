@@ -8,5 +8,5 @@ However, rules have been re-interpreted by [Román Cárdenas](mailto:r.cardenas@
 
 In the linux terminal, type:  
 ```shell
-> ./../cd++ -mSsir_roman.ma -lresults/sir_roman.log
+> ./../cd++ -msir_roman.ma -lresults/sir_roman.log
 ```
