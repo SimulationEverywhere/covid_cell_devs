@@ -1,0 +1,12 @@
+
+#BeginMacro(local_cured) 
+[[local_cured]]
+#EndMacro
+
+#BeginMacro(internal_infected) 
+[[internal_infected]]
+#EndMacro
+
+#BeginMacro(external_infected) 
+[[external_infected]]
+#EndMacro
