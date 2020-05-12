@@ -15,6 +15,7 @@ parser.add_argument('-l', '--log_file', type=str, required=True, help='Input log
 parser.add_argument('-d', '--dim', type=str, default="200,200", help='Dimensions of the cell grid (WIDTH,HEIGHT)')
 parser.add_argument('-i', '--initial_val', default=0, help='Force initial val for the cells')
 parser.add_argument('-c', '--state_changes', action="store_true", help='Log state changes to csv file')
+parser.add_argument('-f', '--img_format', default="pdf", help='Image format used to export the images')
 
 args = parser.parse_args()
 
@@ -148,7 +149,7 @@ plt.title('Epidemic percentages (%s)' % base_name)
 #plt.show()
 plt.xlabel("Time (s)")
 plt.ylabel("Population (%)")
-plt.savefig(base_name + "_area.png")
+plt.savefig(base_name + "_area" + args.img_format)
 
 
 fig, ax = plt.subplots(figsize=(12,7))
@@ -165,7 +166,7 @@ plt.margins(0,0)
 plt.title('Epidemic percentages (%s)' % base_name)
 plt.xlabel("Time (s)")
 plt.ylabel("Population (%)")
-plt.savefig(base_name + "_lines.png")
+plt.savefig(base_name + "_lines" + args.img_format)
 
 
 df_nums = df.drop("walls", axis=1)
@@ -185,4 +186,4 @@ plt.margins(0,0)
 plt.title('Epidemic percentages (%s)' % base_name)
 plt.xlabel("Time (s)")
 plt.ylabel("Population (%)")
-plt.savefig(base_name + "_lines_nosus.png")
+plt.savefig(base_name + "_lines_nosus" + args.img_format)
