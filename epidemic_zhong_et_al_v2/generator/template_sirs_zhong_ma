@@ -16,8 +16,8 @@ initialvalue : -1
 
 localtransition : sirs-zhong-rule
 
-statevariables: population connection movement cured_rate t_i t_r [[internal_vars]]
-statevalues: 100 1 0.6 0.0 [[internal_vars_values]]
+statevariables: population connection movement t_i t_r [[internal_vars]]
+statevalues: 100 1 0.6 [[internal_vars_values]]
 initialvariablesvalue: sirs_zhong.var
 
 neighborports : initial pop [[ports]]
