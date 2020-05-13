@@ -9,9 +9,9 @@ height : 50
 delay : transport
 defaultDelayTime : 1
 border : wrapped
-neighbors : 			area(-1,0)
+neighbors : area(-1,-1) area(-1,0) area(-1,1)
 neighbors : area(0,-1)  area(0,0)  area(0,1)
-neighbors : 			area(1,0)
+neighbors : area(1,-1)  area(1,0)  area(1,1)
 initialvalue : -1
 
 
@@ -29,7 +29,7 @@ rule : {~initial := 0; ~pop := $population; ~infec := $i_infec; ~sus := $i_sus; 
 
 rule : {~pop := $population; ~infec := $i_infec; ~sus := $i_sus; ~rec := $i_rec; }
 {
-$i_sus := round(((0,0)~sus - #macro(i_effect))*100)/100;
-$i_infec:= round(((1 - #macro(recovery)) * (0,0)~infec + (0,0)~sus - $i_sus)*100)/100;
-$i_rec := 1 - $i_sus - $i_infec;}
+$i_rec := round(((0,0)~rec + #macro(recovery) * (0,0)~infec)*100)/100;
+$i_infec:= round(((1 - #macro(recovery)) * (0,0)~infec + #macro(i_effect_moore))*100)/100;
+$i_sus := 1 - $i_rec - $i_infec;}
 1 { (0,0)~initial != -1 }
