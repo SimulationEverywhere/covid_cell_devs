@@ -1,10 +1,10 @@
 
 #BeginMacro(local_cured) 
-(( round(min($cured_rate * $i_inf_5, 1)*100) +
-round(min($cured_rate * $i_inf_4, 1)*100) +
-round(min($cured_rate * $i_inf_3, 1)*100) +
-round(min($cured_rate * $i_inf_2, 1)*100) +
-round(min($cured_rate * $i_inf_1, 1)*100) ) / 100 )
+(( round(min($cr_5 * $i_inf_5, 1)*100) +
+round(min($cr_4 * $i_inf_4, 1)*100) +
+round(min($cr_3 * $i_inf_3, 1)*100) +
+round(min($cr_2 * $i_inf_2, 1)*100) +
+round(min($cr_1 * $i_inf_1, 1)*100) ) / 100 )
 #EndMacro
 
 #BeginMacro(internal_infected) 
